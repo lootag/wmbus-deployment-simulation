@@ -1,0 +1,18 @@
+[package]
+name = "wmbus-deployment-simulation"
+version = "0.1.0"
+edition = "2021"
+description = "Deployment simulation of DSMR5 and DSMR6 gas meters (EMM) on wireless M-Bus in a dense district, built on radiofreccia"
+publish = false
+
+[dependencies]
+# Pinned to master as of 12 November 2026; bump `rev` to update.
+radiofreccia-core = { git = "https://github.com/lootag/radiofreccia", rev = "d8c7f39ed574a742860d54fd04456aaa0778ab3c" }
+radiofreccia-sim = { git = "https://github.com/lootag/radiofreccia", rev = "d8c7f39ed574a742860d54fd04456aaa0778ab3c" }
+tokio = { version = "1.47", default-features = false, features = ["rt", "time", "sync", "macros"] }
+rand = "0.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+debug = false
